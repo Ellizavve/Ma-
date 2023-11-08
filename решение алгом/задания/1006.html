@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Размен денежной суммы</title>
+</head>
+<body>
+
+    <h3 align="center">Решение алгоритмической задачи</h3>
+    <p id="task_content">Известна денежная сумма. Разменять её купюрами 500, 100, 10 и монетой 2 руб., если это возможно.</p>
+
+    <h1>Размен денежной суммы</h1>
+
+    <p>Введите сумму для размена:</p>
+    <input type="text" id="amount">
+    <button onclick="razmen()">Разменять</button>
+
+    <p id="result"></p>
+
+    <script>
+        function razmen() {
+            var amount = parseInt(document.getElementById('amount').value);
+            var result = '';
+
+            var count500 = Math.floor(amount / 500);
+            amount = amount % 500;
+            var count100 = Math.floor(amount / 100);
+            amount = amount % 100;
+            var count10 = Math.floor(amount / 10);
+            amount = amount % 10;
+            var count2 = Math.floor(amount / 2);
+
+            if (count500 > 0) {
+                result += count500 + ' купюр по 500 руб.<br>';
+            }
+            if (count100 > 0) {
+                result += count100 + ' купюр по 100 руб.<br>';
+            }
+            if (count10 > 0) {
+                result += count10 + ' купюр по 10 руб.<br>';
+            }
+            if (count2 > 0) {
+                result += count2 + ' монет по 2 руб.<br>';
+            }
+
+            document.getElementById('result').innerHTML = result;
+        }
+    </script>
+     <div id="footer">
+        <a href="сайт по домашним.html"><p>На главную</p></a>
+    </div>
+
+</body>
+</html>
